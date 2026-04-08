@@ -69,7 +69,7 @@ const createAcount =asyncHandler(async(req,res)=>{
     res.cookie("accessToken",accessToken,{
         httpOnly:true,
         secure:true,
-       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+       sameSite: "none",
         maxAge:1000*60*60*24*30,
     });
 
