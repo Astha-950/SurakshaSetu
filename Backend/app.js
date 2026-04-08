@@ -21,8 +21,8 @@ app.use(cors({
   
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  secure: true,        // required for HTTPS (Vercel + Render)
-  sameSite: "none"     
+    secure: process.env.NODE_ENV === 'production',
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
