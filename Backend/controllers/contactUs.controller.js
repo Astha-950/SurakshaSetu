@@ -22,27 +22,27 @@ const createContactUs = async (req, res) => {
     // ✅ send email (to YOU or to USER — your choice)
 
     // OPTION 1 👉 Send to ADMIN (you receive user's message)
-    await sendMail({
-      email: process.env.SMTP_FROM_MAIL, // your email
-      subject: "New Contact Us Message",
-      messageHTML: `
-        <h2>New Message Received</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Message:</b> ${message}</p>
-      `,
-    });
+    // await sendMail({
+    //   email: process.env.SMTP_FROM_MAIL, // your email
+    //   subject: "New Contact Us Message",
+    //   messageHTML: `
+    //     <h2>New Message Received</h2>
+    //     <p><b>Name:</b> ${name}</p>
+    //     <p><b>Email:</b> ${email}</p>
+    //     <p><b>Message:</b> ${message}</p>
+    //   `,
+    // });
 
     // OPTION 2 👉 Send confirmation to USER (optional)
     
-    await sendMail({
-      email: email,
-      subject: "We received your message",
-      messageHTML: `
-        <h2>Thank you ${name}!</h2>
-        <p>We have received your message and will get back to you soon.</p>
-      `,
-    });
+    // await sendMail({
+    //   email: email,
+    //   subject: "We received your message",
+    //   messageHTML: `
+    //     <h2>Thank you ${name}!</h2>
+    //     <p>We have received your message and will get back to you soon.</p>
+    //   `,
+    // });
     
 
     return res.status(200).json({
